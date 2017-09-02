@@ -1,0 +1,15 @@
+server:
+  port: 80
+  contextPath: /
+
+spring:
+  profiles:
+    active: public
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://login.sigapi.info/oauth/check_token
+
+sigapi:
+  diretorio: /sigapi

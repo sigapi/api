@@ -1,0 +1,34 @@
+server:
+  port: 8082
+  contextPath: /api-server
+
+spring:
+  main:
+    banner-mode: "off"
+
+  cache:
+    guava:
+      spec: maximumSize=100,expireAfterWrite=30m
+
+  jackson:
+    locale: pt_BR
+    time-zone: America/Sao_Paulo
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization-inclusion: non_null
+    serialization:
+      write_dates_as_timestamps: false
+
+logging:
+  path: ${sigapi.diretorio}/logs
+
+security:
+  oauth2:
+    client:
+      client-id: api
+      client-secret: secret
+    resource:
+      token-info-uri: http://localhost:8081/login/oauth/check_token
+      prefer-token-info: true
+
+sigapi:
+  diretorio: /tmp/sigapi
